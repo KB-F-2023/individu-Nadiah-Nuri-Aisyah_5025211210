@@ -1,6 +1,5 @@
 import heapq
 
-# V+ElogE time / E space
 def a_star(graph, start, dest, heuristic):
     distances = {vertex: float('inf') for vertex in graph} # V time / V space
     distances[start] = 0
@@ -47,9 +46,6 @@ def generate_path_from_parents(parent, start, dest):
 
     return '->'.join(path[::-1])
 
-
-
-# FROM https://www.youtube.com/watch?v=eSOJ3ARN5FM&list=PLTd6ceoshprfgFGcdiQw9LQ3fXaYC-Zs2&index=3
 graph = {
     'A': {'B':5, 'C':5},
     'B': {'A':5, 'C':4, 'D':3  },
@@ -90,8 +86,10 @@ heuristic = {
 }
 
 start = 'A'
-dest= 'P'
-distances,parent = a_star(graph2, start, dest, heuristic2)
+dest= 'O'
+distances,parent = a_star(graph, start, dest, heuristic)
 print('distances => ', distances)
-print('parent => ', parent)
-print('optimal path => ', generate_path_from_parents(parent,start,dest))
+print('\n')
+print('parent -> ', parent)
+print('\n')
+print('optimal path -> ', generate_path_from_parents(parent,start,dest))
